@@ -37,13 +37,12 @@
         />
 
     <Button
+        android:id="@+id/button_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/connect"
-        android:id="@+id/button_start"
-        android:layout_marginTop="600dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="600dp"
         android:backgroundTint="@color/yellow"
-        />
+        android:text="@string/connect" />
 
 </FrameLayout>

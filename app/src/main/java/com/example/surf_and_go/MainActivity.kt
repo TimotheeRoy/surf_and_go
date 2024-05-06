@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             insets
 
         }
+
         val button = findViewById<Button>(R.id.button_start)
         button.setOnClickListener{
             finish()
