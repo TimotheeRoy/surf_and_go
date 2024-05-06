@@ -54,7 +54,24 @@ class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAda
 
     inner class SpotViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(spot: Spot) {
-            itemView.findViewById<Button>(R.id.spot_btn).text = spot.name
+
+            //Bouton qui sert à aller voir le détail d'un spot
+
+            //pointeur "itemView" pour aller chercher l'élément par son ID
+            val button = itemView.findViewById<Button>(R.id.spot_btn)
+            //Dans le bouton, affiche le nom du spot
+            button.text = spot.name
+
+            //Quand on clique, redirige vers "SpotDetails"
+            button.setOnClickListener{
+                val intent = Intent(itemView.context, SpotDetails::class.java)
+                //"Putextra" envoi la data ailleurs
+                intent.putExtra("spotName", spot.name)
+                intent.putExtra("spotImage", spot.image)
+                intent.putExtra("spotLocation", spot.location)
+
+                itemView.context.startActivity(intent)
+            }
         }
     }
 }
