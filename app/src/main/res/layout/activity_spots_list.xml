@@ -35,7 +35,8 @@
         android:textColor="@color/yellow"
         android:textSize="70sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:fontFamily="@font/neord"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
