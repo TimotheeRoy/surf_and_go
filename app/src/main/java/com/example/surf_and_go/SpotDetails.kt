@@ -1,6 +1,8 @@
 package com.example.surf_and_go
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -29,10 +31,17 @@ class SpotDetails : AppCompatActivity() {
 
         val getImage = intent.getStringExtra("spotImage")
         val image: ImageView = findViewById<ImageView>(R.id.image_detail)
-      
+
 
         val getLocation = intent.getStringExtra("spotLocation")
         val location: TextView = findViewById<TextView>(R.id.location_detail)
         location.text = getLocation
+
+        val button: Button = findViewById<Button>(R.id.button_detail)
+        button.setOnClickListener(){
+            val intent = Intent(applicationContext, SpotsList::class.java)
+            finish()
+            startActivity(intent)
+        }
     }
 }
