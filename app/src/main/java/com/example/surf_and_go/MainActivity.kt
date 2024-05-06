@@ -1,8 +1,10 @@
 package com.example.surf_and_go
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             finish()
             startActivity(Intent(applicationContext, SpotsList::class.java))
         }
+        val emptyView = findViewById<TextView>(R.id.empty_view)
+        val typeface = Typeface.createFromAsset(assets, "fonts/neord.ttf")
+        emptyView.typeface = typeface
+
     }
 
 }
