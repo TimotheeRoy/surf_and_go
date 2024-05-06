@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 data class Spot (val name: String, val location: String, val image: String)
 class SpotsList : AppCompatActivity() {
     val spots = arrayOf(
-        Spot("Hendaye", "Pays Basque", "")
+        Spot("Hendaye", "Pays Basque", ""),
+        Spot("dfsdg", "gsgsg", ""),
+        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
+
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,7 @@ class SpotsList : AppCompatActivity() {
 }
 class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAdapter.SpotViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpotViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_spots_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_display, parent, false)
         return SpotViewHolder(view)
     }
 
@@ -42,15 +46,6 @@ class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAda
         val spot = spots[position]
         holder.bind(spot)
 
-        holder.itemView.setOnClickListener{
-            val intent = Intent(holder.itemView.context, SpotsList::class.java)
-
-            intent.putExtra("spot_name", spot.name)
-            intent.putExtra("spot_location", spot.location)
-            intent.putExtra("spot_img", spot.image)
-
-            holder.itemView.context.startActivity(intent)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -59,7 +54,7 @@ class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAda
 
     inner class SpotViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(spot: Spot) {
-            itemView.findViewById<TextView>(R.id.list).text = spot.name
+            itemView.findViewById<Button>(R.id.spot_btn).text = spot.name
         }
     }
 }

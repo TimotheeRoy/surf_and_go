@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.RecyclerView
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
         val button = findViewById<Button>(R.id.button_start)
         button.setOnClickListener{
+            finish()
             startActivity(Intent(applicationContext, SpotsList::class.java))
         }
     }
