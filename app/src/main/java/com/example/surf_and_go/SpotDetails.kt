@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.squareup.picasso.Picasso
 
 class SpotDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,9 @@ class SpotDetails : AppCompatActivity() {
 
         val imageUrl = intent.getStringExtra("spotImage")
         val imageView: ImageView = findViewById<ImageView>(R.id.image_detail)
+        Picasso.get()
+            .load(imageUrl)
+            .into(imageView)
 
 
         val location = intent.getStringExtra("spotLocation")
