@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="turquoise">#35ABB0</color>
     <color name="yellow">#D19336</color>
+    <color name="white_transparent">#8DFFFFFF</color>
 </resources>

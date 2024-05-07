@@ -1,6 +1,7 @@
 package com.example.surf_and_go
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -19,6 +21,10 @@ class SpotsList : AppCompatActivity() {
     val spots = arrayOf(
         Spot("Hendaye", "Pays Basque", ""),
         Spot("dfsdg", "gsgsg", ""),
+        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
+        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
+        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
+        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
         Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
 
     )
@@ -31,8 +37,11 @@ class SpotsList : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // On selectionne l'endroit où afficher
         val recyclerView: RecyclerView = findViewById(R.id.list)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        // On définit la façon dont on affiche la liste
+        recyclerView.layoutManager = GridLayoutManager(this,2)
         recyclerView.adapter = SpotAdapter(spots)
     }
 }
@@ -61,6 +70,7 @@ class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAda
             val button = itemView.findViewById<Button>(R.id.spot_btn)
             //Dans le bouton, affiche le nom du spot
             button.text = spot.name
+            button.setBackgroundColor(0)
 
             //Quand on clique, redirige vers "SpotDetails"
             button.setOnClickListener{
