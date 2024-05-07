@@ -31,7 +31,10 @@ class SpotsList : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // On selectionne l'endroit où afficher
         val recyclerView: RecyclerView = findViewById(R.id.list)
+        // On définit la façon dont on affiche la liste
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = SpotAdapter(spots)
     }

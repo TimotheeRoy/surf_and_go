@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
             finish()
             startActivity(Intent(applicationContext, SpotsList::class.java))
         }
-        val emptyView = findViewById<TextView>(R.id.empty_view)
-        val typeface = Typeface.createFromAsset(assets, "fonts/neord.ttf")
-        emptyView.typeface = typeface
+        //val emptyView = findViewById<TextView>(R.id.empty_view)
+        //val typeface = Typeface.createFromAsset(assets, "fonts/neord.ttf")
+        //emptyView.typeface = typeface
 
     }
 

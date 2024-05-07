@@ -23,19 +23,19 @@ class SpotDetails : AppCompatActivity() {
 
 
         //Les variables "get" vont chercher la data de SpotsListActivity
-        val getName = intent.getStringExtra("spotName")
+        val name = intent.getStringExtra("spotName")
 
         //Les variables "name, image, etc" sont des pointeurs
-        val name: TextView = findViewById<TextView>(R.id.name_detail)
-        name.text = getName
+        val nameView: TextView = findViewById<TextView>(R.id.name_detail)
+        nameView.text = name
 
-        val getImage = intent.getStringExtra("spotImage")
-        val image: ImageView = findViewById<ImageView>(R.id.image_detail)
+        val imageUrl = intent.getStringExtra("spotImage")
+        val imageView: ImageView = findViewById<ImageView>(R.id.image_detail)
 
 
-        val getLocation = intent.getStringExtra("spotLocation")
-        val location: TextView = findViewById<TextView>(R.id.location_detail)
-        location.text = getLocation
+        val location = intent.getStringExtra("spotLocation")
+        val locationView: TextView = findViewById<TextView>(R.id.location_detail)
+        locationView.text = location
 
         val button: Button = findViewById<Button>(R.id.button_detail)
         button.setOnClickListener(){
