@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 data class Spot (val name: String, val location: String, val image: String)
 class SpotsList : AppCompatActivity() {
     val spots = arrayOf(
-        Spot("Hendaye", "Pays Basque", ""),
+        Spot("Hendaye", "Pays Basque", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-29PHKbKLloaBoGE-SLOk2C_Ix9sPa9pHWkBC6y-cigl120DTrpucm47iLJ9-Q9Dqlaw&usqp=CAU"),
         Spot("dfsdg", "gsgsg", ""),
         Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
         Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
@@ -54,7 +54,6 @@ class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAda
     override fun onBindViewHolder(holder: SpotViewHolder, position: Int) {
         val spot = spots[position]
         holder.bind(spot)
-
     }
 
     override fun getItemCount(): Int {
