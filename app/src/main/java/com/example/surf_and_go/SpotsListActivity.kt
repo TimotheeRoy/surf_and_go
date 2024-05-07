@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -35,7 +36,7 @@ class SpotsList : AppCompatActivity() {
         // On selectionne l'endroit où afficher
         val recyclerView: RecyclerView = findViewById(R.id.list)
         // On définit la façon dont on affiche la liste
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this,3)
         recyclerView.adapter = SpotAdapter(spots)
     }
 }
