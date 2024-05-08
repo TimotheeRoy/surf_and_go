@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             finish()
             startActivity(Intent(applicationContext, SpotsList::class.java))
         }
-
+   
 
     }
 
