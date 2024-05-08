@@ -18,25 +18,21 @@ import androidx.recyclerview.widget.RecyclerView
 
 data class Spot (val name: String, val location: String, val image: String)
 class SpotsList : AppCompatActivity() {
-    val spots = arrayOf(
-        Spot("Hendaye", "Pays Basque", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-29PHKbKLloaBoGE-SLOk2C_Ix9sPa9pHWkBC6y-cigl120DTrpucm47iLJ9-Q9Dqlaw&usqp=CAU"),
-        Spot("dfsdg", "gsgsg", ""),
-        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
-        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
-        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
-        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
-        Spot("dfglkjsfkjlfgfsdg", "gsgsflnkfdnlkdfg", ""),
-
+    private val spots = arrayOf(
+        Spot("Hendaye", "Pays Basque, France", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-29PHKbKLloaBoGE-SLOk2C_Ix9sPa9pHWkBC6y-cigl120DTrpucm47iLJ9-Q9Dqlaw&usqp=CAU"),
+        Spot("La Côte des Basques", "Pays Basque, France", "https://cdt64.media.tourinsoft.eu/upload/Plage-de-la-Cote-des-Basques--Biarritz---Vue.jpg?width=1800"),
+        Spot("La Néra", "Bourail, Nouvelle-Calédonie", "https://www.nouvellecaledonie.travel/app/uploads/nouvelle-caledonie/2023/02/thumbs/Surf-a-Bourail-Ben-Thouard-2029-07-16_v2-640x320-crop-1677039010.jpg"),
+        Spot("Nazaré", "Leiria, Portugal", "https://img.redbull.com/images/c_crop,w_1497,h_748,x_3,y_97,f_auto,q_auto/c_scale,w_1200/redbullcom/2017/03/06/1331847907687_2/surf-gros-nazare-lucas-chumbinho"),
+        Spot("Hossegor", "Pays Basque, France", "https://sportihome.com/uploads/spots/59a70f35b27eb115986b6247/large/1504121018914.jpg"),
+        Spot("Passe de Dumbéa", "Nouméa, Nouvelle-Calédonie", "https://www.pacific-good-deal.com/wp-content/uploads/2023/08/1.webp"),
+        Spot("Torami", "Chiba, Japan", "https://www.tokyoweekender.com/wp-content/uploads/2015/06/Kamogawa-surfing.png"),
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_spots_list)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        // cache la bar d'action
+        supportActionBar?.hide()
 
         // On selectionne l'endroit où afficher
         val recyclerView: RecyclerView = findViewById(R.id.list)
@@ -69,7 +65,6 @@ class SpotAdapter(private val spots: Array<Spot>) : RecyclerView.Adapter<SpotAda
             val button = itemView.findViewById<Button>(R.id.spot_btn)
             //Dans le bouton, affiche le nom du spot
             button.text = spot.name
-            button.setBackgroundColor(0)
 
             //Quand on clique, redirige vers "SpotDetails"
             button.setOnClickListener{
