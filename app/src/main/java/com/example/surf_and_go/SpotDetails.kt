@@ -17,7 +17,6 @@ class SpotDetailsActivity : AppCompatActivity() {
         // cache la bar d'action
         supportActionBar?.hide()
 
-
         //Les variables "get" vont chercher la data de SpotsListActivity
         val name = intent.getStringExtra("spotName")
 
