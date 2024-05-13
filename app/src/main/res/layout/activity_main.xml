@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/connexionfond"
         android:scaleType="centerCrop"
+        android:contentDescription="fond"
         />
 
     <TextView
@@ -46,5 +47,13 @@
         android:layout_marginTop="600dp"
         android:backgroundTint="@color/yellow"
         android:text="@string/connect" />
+
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/stop" />
 
 </FrameLayout>
