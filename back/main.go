@@ -8,73 +8,73 @@ import (
 )
 
 type Spot struct {
-	name              string
-	description       string
-	horaire           string
-	photo             string
-	niveau            string
-	taille_des_vagues string
-	location_matos    bool
-	meteo             string
-	vent              int
+	Name              string
+	Description       string
+	Horaire           string
+	Photo             string
+	Niveau            string
+	Taille_des_vagues string
+	Location_matos    bool
+	Meteo             string
+	Vent              int
 }
 
 func main() {
 	Spots := []Spot{
 		{
-			name:              "Biarritz",
-			description:       "Spot de surf emblématique en France, connu pour ses vagues puissantes et ses paysages magnifiques.",
-			horaire:           "6h - 21h",
-			photo:             "biarritz.jpg",
-			niveau:            "Intermédiaire à Avancé",
-			taille_des_vagues: "1m - 4m",
-			location_matos:    true,
-			meteo:             "Ensoleillé",
-			vent:              15,
+			Name:              "Biarritz",
+			Description:       "Spot de surf emblématique en France, connu pour ses vagues puissantes et ses paysages magnifiques.",
+			Horaire:           "6h - 21h",
+			Photo:             "biarritz.jpg",
+			Niveau:            "Intermédiaire à Avancé",
+			Taille_des_vagues: "1m - 4m",
+			Location_matos:    true,
+			Meteo:             "Ensoleillé",
+			Vent:              15,
 		},
 		{
-			name:              "Hossegor",
-			description:       "Réputé pour ses vagues tubulaires et ses compétitions internationales de surf.",
-			horaire:           "6h - 20h",
-			photo:             "hossegor.jpg",
-			niveau:            "Avancé",
-			taille_des_vagues: "1.5m - 5m",
-			location_matos:    true,
-			meteo:             "Partiellement nuageux",
-			vent:              20,
+			Name:              "Hossegor",
+			Description:       "Réputé pour ses vagues tubulaires et ses compétitions internationales de surf.",
+			Horaire:           "6h - 20h",
+			Photo:             "hossegor.jpg",
+			Niveau:            "Avancé",
+			Taille_des_vagues: "1.5m - 5m",
+			Location_matos:    true,
+			Meteo:             "Partiellement nuageux",
+			Vent:              20,
 		},
 		{
-			name:              "La Torche",
-			description:       "Spot de surf en Bretagne, parfait pour les surfeurs de tous niveaux, offrant une grande variété de vagues.",
-			horaire:           "7h - 19h",
-			photo:             "la_torche.jpg",
-			niveau:            "Tous niveaux",
-			taille_des_vagues: "0.5m - 3m",
-			location_matos:    false,
-			meteo:             "Pluvieux",
-			vent:              10,
+			Name:              "La Torche",
+			Description:       "Spot de surf en Bretagne, parfait pour les surfeurs de tous niveaux, offrant une grande variété de vagues.",
+			Horaire:           "7h - 19h",
+			Photo:             "la_torche.jpg",
+			Niveau:            "Tous niveaux",
+			Taille_des_vagues: "0.5m - 3m",
+			Location_matos:    false,
+			Meteo:             "Pluvieux",
+			Vent:              10,
 		},
 		{
-			name:              "Lacanau",
-			description:       "Un des spots de surf les plus connus en Gironde, offrant des vagues régulières et une ambiance conviviale.",
-			horaire:           "6h - 22h",
-			photo:             "lacanau.jpg",
-			niveau:            "Débutant à Intermédiaire",
-			taille_des_vagues: "1m - 3m",
-			location_matos:    true,
-			meteo:             "Ensoleillé avec quelques nuages",
-			vent:              12,
+			Name:              "Lacanau",
+			Description:       "Un des spots de surf les plus connus en Gironde, offrant des vagues régulières et une ambiance conviviale.",
+			Horaire:           "6h - 22h",
+			Photo:             "lacanau.jpg",
+			Niveau:            "Débutant à Intermédiaire",
+			Taille_des_vagues: "1m - 3m",
+			Location_matos:    true,
+			Meteo:             "Ensoleillé avec quelques nuages",
+			Vent:              12,
 		},
 		{
-			name:              "Cap Ferret",
-			description:       "Spot de surf populaire sur la côte atlantique, avec des vagues adaptées à tous les niveaux de surfeurs.",
-			horaire:           "6h - 20h",
-			photo:             "cap_ferret.jpg",
-			niveau:            "Tous niveaux",
-			taille_des_vagues: "0.5m - 2.5m",
-			location_matos:    false,
-			meteo:             "Nuageux",
-			vent:              8,
+			Name:              "Cap Ferret",
+			Description:       "Spot de surf populaire sur la côte atlantique, avec des vagues adaptées à tous les niveaux de surfeurs.",
+			Horaire:           "6h - 20h",
+			Photo:             "cap_ferret.jpg",
+			Niveau:            "Tous niveaux",
+			Taille_des_vagues: "0.5m - 2.5m",
+			Location_matos:    false,
+			Meteo:             "Nuageux",
+			Vent:              8,
 		},
 	}
 
