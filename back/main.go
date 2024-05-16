@@ -8,15 +8,15 @@ import (
 )
 
 type Spot struct {
-	name              string
-	description       string
-	horaire           string
-	photo             string
-	niveau            string
-	taille_des_vagues string
-	location_matos    bool
-	meteo             string
-	vent              int
+	Name              string
+	Description       string
+	Horaire           string
+	Photo             string
+	Niveau            string
+	Taille_des_vagues string
+	Location_matos    bool
+	Meteo             string
+	Vent              int
 }
 
 func main() {
