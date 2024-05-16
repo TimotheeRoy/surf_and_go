@@ -1,5 +1,6 @@
 package main
 
+
 import (
 	"log"
 	"net/http"
@@ -85,6 +86,7 @@ func main() {
 		})
 	})
 
+	Connectdb()
 	//Serveur qui run
 	router.Run()
 
