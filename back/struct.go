@@ -1,9 +1,9 @@
 package main
 
-type SpotDB struct{
-	_id string
-	City string
-	Latitude string
+type SpotDB struct {
+	_id       string
+	City      string
+	Latitude  string
 	Longitude string
 }
 
@@ -17,4 +17,8 @@ type Spot struct {
 	Location_matos    bool
 	Meteo             string
 	Vent              int
+}
+
+type SpotsName struct {
+	Name string
 }
