@@ -1,7 +1,6 @@
 package main
 
 type SpotDB struct {
-	_id       string
 	City      string
 	Latitude  string
 	Longitude string
@@ -19,6 +18,4 @@ type Spot struct {
 	Vent              int
 }
 
-type SpotsName struct {
-	Name string
-}
+
