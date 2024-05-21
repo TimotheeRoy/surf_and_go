@@ -69,7 +69,7 @@ func getAllSpots() []string {
 		panic(err)
 	}
 
-	var result []string
+	var result []string 
 	
 	//on parcours un à un les éléments de cursor (retour de find)
 	//ces élémenents sont de type SpotDB 
