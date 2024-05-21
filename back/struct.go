@@ -1,7 +1,7 @@
 package main
 
 type SpotDB struct {
-	City      string
+	Name      string
 	Latitude  string
 	Longitude string
 }

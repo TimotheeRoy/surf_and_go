@@ -33,7 +33,7 @@ func getSpotDetailsFromName(name string) (SpotDB) {
 	coll := client.Database("surfAndGo").Collection("spots")
 
 	// Création d'un filtre pour rechercher un document où le champ "city" correspond au nom fourni.
-	filter := bson.D{{Key: "city", Value: name}}
+	filter := bson.D{{Key: "name", Value: name}}
 
 	// Déclaration d'une variable pour stocker le résultat de la requête.
 	var result SpotDB
@@ -83,7 +83,7 @@ func getAllSpots() []string {
 			panic(err)
 		}
 		//on ajoute (append c'est comme push en js), le spot.City (donc le name) au tableau result 
-		result = append(result, spot.City)
+		result = append(result, spot.Name)
 	}
 
 	if err := cursor.Err() ; err != nil {
