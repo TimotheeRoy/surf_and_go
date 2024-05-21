@@ -26,9 +26,8 @@ type Location struct {
 	Name           string  `json:"name"`
 	Region         string  `json:"region"`
 	Country        string  `json:"country"`
-	Lat            float64 `json:"lat"`
-	Lon            float64 `json:"lon"`
 	TzID           string  `json:"tz_id"`
 	LocaltimeEpoch int64   `json:"localtime_epoch"`
 	Localtime      string  `json:"localtime"`
 }
+

@@ -72,4 +72,6 @@ L'application devra être compatible avec mobiles et tablettes ANDROID uniquemen
 | `id`      | `string` | **Required**. Id of item to fetch |
 
 
+## trucs à ajouter
+- stocker l'heure actuelle pour l'utiliser dans la requete au lieu de prendre 14h 
 

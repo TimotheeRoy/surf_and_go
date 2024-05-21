@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -49,6 +50,7 @@ func getSpotDetailsFromName(name string) (SpotDB) {
 	// Si une erreur survient (par exemple, si aucun document n'est trouvé), elle est gérée ici.
 	if err != nil {
 		// panic interrompt l'exécution du programme en cas d'erreur.
+		fmt.Print("erreur dans db" , err)
 		panic(err)
 	}
 
