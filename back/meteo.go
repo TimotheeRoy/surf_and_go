@@ -1,44 +1,48 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
-
 // Appel de l'API Météo Weather
 
-func meteo() {
+func getMeteo(name string) ApiResponse {
 	// Stock 1ere partie de l'URL 
-	commentlappeler := "http://api.weatherapi.com/v1/marine.json?key=20d5504a766049328a285729241705&q="
+	startUrl := "http://api.weatherapi.com/v1/marine.json?key=20d5504a766049328a285729241705&q="
 
 	// Réccupérer les coordonées (longitude et latitude)
-	getSpotsDsFromName ()
+	spot := getSpotDetailsFromName(name)
 
+	longitute := spot.Longitude
+	latitude := spot.Latitude
 
+	// URL final à fetch
+	url := startUrl + latitude + "," + longitute
 
-}
-
-/*	
-
-	// Faire la requête GET
+	// Fetch
 	resp, err := http.Get(url)
-	if err != nil {
-		// Gérer l'erreur
-		fmt.Println("Erreur lors de la requête:", err)
-		return
-	}
-	// Fermer le corps de la réponse à la fin de la fonction
-	defer resp.Body.Close()
+    if err != nil {
+        fmt.Printf("Erreur lors de l'envoi de la requête : %v\n", err)
+        panic(err)
+    }
 
-	// Lire le corps de la réponse
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		// Gérer l'erreur de lecture
-		fmt.Println("Erreur lors de la lecture du corps:", err)
-		return
-	}
+	// Lecture de ce qu'on a fetch, retourne un tableau de byte
+    defer resp.Body.Close()
+    body, err := io.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Printf("Erreur lors de la lecture de la réponse : %v\n", err)
+        panic(err)
+    }
 
-	// Afficher le corps de la réponse
-	fmt.Println(string(body))
+	// Traduit le tableau de byte en JSON
+   
+    var result ApiResponse
+    if err := json.Unmarshal(body, &result); err != nil {
+        fmt.Printf("Erreur lors de la désérialisation du JSON : %v\n", err)
+        panic(err)
+    }
+    return result
+}

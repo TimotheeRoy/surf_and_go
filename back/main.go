@@ -13,7 +13,7 @@ func main() {
 
 	router.GET("/:name", func(c *gin.Context) {
 		name := c.Param("name") // on recup le parametre name de la route
-		c.JSON(http.StatusOK, getSpotDetailsFromName(name))
+		c.JSON(http.StatusOK, getMeteo(name))
 	})
 
 	router.GET("/spotsList", func(c *gin.Context) {
