@@ -9,7 +9,7 @@ import (
 
 // Appel de l'API Météo Weather
 
-func getMeteo(name string) Location {
+func getMeteo(name string) ApiResponse {
 	// Stock 1ere partie de l'URL
 	startUrl := "http://api.weatherapi.com/v1/marine.json?key=3321138404bc4d6bbed101345242105&hour=14&q="  // faudra faire un .env pour la clé api et même l'url en vrai 
 
@@ -45,5 +45,5 @@ func getMeteo(name string) Location {
 		panic(err)
 	}
 
-	return result.Location
+	return result
 }

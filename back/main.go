@@ -21,7 +21,7 @@ func main() {
 	})
 
 	//Serveur qui run
-	router.Run(":8081")
+	router.Run(":8080")
 
 	log.Println("Starting server on port 8080")
 }
