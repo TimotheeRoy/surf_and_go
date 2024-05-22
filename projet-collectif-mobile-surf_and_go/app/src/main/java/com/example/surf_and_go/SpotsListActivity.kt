@@ -3,6 +3,7 @@ package com.example.surf_and_go
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,13 +26,13 @@ data class Spot(val name: String)
 
 // Retrofit API interface
 interface SurfSpotApi {
-    @GET("/spots")
+    @GET("/spotsList")
     fun getSurfSpots(): Call<List<Spot>>
 }
 
 // RetrofitInstance singleton
 object RetrofitInstance {
-    private const val BASE_URL = "http://192.168.7.202:8080/spotsList/"
+    private const val BASE_URL = "http://10.0.2.2:8080/"
 
     val api: SurfSpotApi by lazy {
         Retrofit.Builder()
@@ -69,12 +70,15 @@ class SpotsListActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Spot>>, response: Response<List<Spot>>) {
                 if (response.isSuccessful) {
                     val surfSpots = response.body() ?: emptyList()
+                    Log.d("SpotsListActivity", "Received ${surfSpots.size} spots")
                     recyclerView.adapter = SpotAdapter(surfSpots)
+                } else {
+                    Log.e("SpotsListActivity", "API response not successful, response code: ${response.code()}")
                 }
             }
 
             override fun onFailure(call: Call<List<Spot>>, t: Throwable) {
-                // Handle error here
+                Log.e("SpotsListActivity", "API call failed", t)
             }
         })
 
