@@ -73,5 +73,4 @@ L'application devra être compatible avec mobiles et tablettes ANDROID uniquemen
 
 
 ## trucs à ajouter
-- stocker l'heure actuelle pour l'utiliser dans la requete au lieu de prendre 14h 
-
+- post d'un spot

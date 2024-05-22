@@ -14,3 +14,4 @@ projet-collectif-mobile-surf_and_go/.gradle
 .cxx
 local.properties
 /.idea
+.env

@@ -5,23 +5,35 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
+	"strconv"
+	"time"
+
+	"github.com/joho/godotenv"
 )
 
 // Appel de l'API Météo Weather
 
 func getMeteo(name string) ApiResponse {
 	// Stock 1ere partie de l'URL
-	startUrl := "http://api.weatherapi.com/v1/marine.json?key=3321138404bc4d6bbed101345242105&hour=14&q="  // faudra faire un .env pour la clé api et même l'url en vrai 
+	err := godotenv.Load()
+	if err != nil {
+		panic(err)
+	}
 
-	// Réccupérer les coordonées (longitude et latitude)
+	API_URL := os.Getenv("API_URL")
+
+	// Réccupérer les coordonées (longitude et latitude) et l'heure actuelle
 	spot := getSpotDetailsFromName(name)
 
 	longitute := spot.Longitude
 	latitude := spot.Latitude
 
+	hour := time.Now().Hour()
+
 
 	// URL final à fetch
-	url := startUrl + latitude + "," + longitute
+	url := API_URL + strconv.Itoa(hour) + "&q=" + latitude + "," + longitute
 
 	// Fetch
 	resp, err := http.Get(url)
