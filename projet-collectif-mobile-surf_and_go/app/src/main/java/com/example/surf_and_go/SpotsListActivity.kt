@@ -31,7 +31,7 @@ interface SurfSpotApi {
 
 // RetrofitInstance singleton
 object RetrofitInstance {
-    private const val BASE_URL = "localhost:8080/spotsList"
+    private const val BASE_URL = "http://192.168.7.202:8080/spotsList/"
 
     val api: SurfSpotApi by lazy {
         Retrofit.Builder()
