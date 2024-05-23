@@ -12,6 +12,7 @@ import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -26,13 +27,13 @@ data class Spot(val name: String)
 
 // Retrofit API interface
 interface SurfSpotApi {
-    @GET("/spotsList")
-    fun getSurfSpots(): Call<List<Spot>>
+    @GET("spotsList/")
+    fun getSurfSpots(): Call<List<String>>
 }
 
 // RetrofitInstance singleton
 object RetrofitInstance {
-    private const val BASE_URL = "http://10.0.2.2:8080/"
+    private const val BASE_URL = "http://192.168.5.254:8080/"
 
     val api: SurfSpotApi by lazy {
         Retrofit.Builder()
@@ -61,15 +62,18 @@ class SpotsListActivity : AppCompatActivity() {
         searchTextView.setHintTextColor(Color.parseColor("#B6C3AD7D"))
         searchTextView.setTextColor(Color.BLACK)
 
+        var surfSpots = emptyList<String>()
+
         // Set up RecyclerView
         val recyclerView: RecyclerView = findViewById(R.id.list)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.adapter = SpotAdapter(surfSpots)
 
         // Fetch data from API and set the adapter
-        RetrofitInstance.api.getSurfSpots().enqueue(object : Callback<List<Spot>> {
-            override fun onResponse(call: Call<List<Spot>>, response: Response<List<Spot>>) {
+        RetrofitInstance.api.getSurfSpots().enqueue(object : Callback<List<String>> {
+            override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
                 if (response.isSuccessful) {
-                    val surfSpots = response.body() ?: emptyList()
+                    surfSpots = response.body() ?: emptyList()
                     Log.d("SpotsListActivity", "Received ${surfSpots.size} spots")
                     recyclerView.adapter = SpotAdapter(surfSpots)
                 } else {
@@ -77,7 +81,7 @@ class SpotsListActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<List<Spot>>, t: Throwable) {
+            override fun onFailure(call: Call<List<String>>, t: Throwable) {
                 Log.e("SpotsListActivity", "API call failed", t)
             }
         })
@@ -97,7 +101,7 @@ class SpotsListActivity : AppCompatActivity() {
     }
 }
 
-class SpotAdapter(private var spots: List<Spot>) : RecyclerView.Adapter<SpotAdapter.SpotViewHolder>() {
+class SpotAdapter(private var spots: List<String>) : RecyclerView.Adapter<SpotAdapter.SpotViewHolder>() {
 
     private val spotsBackup = spots.toMutableList()
 
@@ -116,12 +120,12 @@ class SpotAdapter(private var spots: List<Spot>) : RecyclerView.Adapter<SpotAdap
     }
 
     inner class SpotViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(spot: Spot) {
+        fun bind(spot: String) {
             val button = itemView.findViewById<Button>(R.id.spot_btn)
-            button.text = spot.name
+            button.text = spot
             button.setOnClickListener {
                 val intent = Intent(itemView.context, SpotDetailsActivity::class.java)
-                intent.putExtra("spotName", spot.name)
+                intent.putExtra("spotName", spot)
                 itemView.context.startActivity(intent)
             }
         }
@@ -131,7 +135,7 @@ class SpotAdapter(private var spots: List<Spot>) : RecyclerView.Adapter<SpotAdap
         spots = if (query.isEmpty()) {
             spotsBackup
         } else {
-            spotsBackup.filter { it.name.startsWith(query, true) }
+            spotsBackup.filter { it.startsWith(query, true) }
         }
         notifyDataSetChanged()
     }

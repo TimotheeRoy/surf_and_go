@@ -26,14 +26,13 @@ func getMeteo(name string) ApiResponse {
 	// Réccupérer les coordonées (longitude et latitude) et l'heure actuelle
 	spot := getSpotDetailsFromName(name)
 
-	longitute := spot.Longitude
+	longitude := spot.Longitude
 	latitude := spot.Latitude
 
 	hour := time.Now().Hour()
 
-
 	// URL final à fetch
-	url := API_URL + strconv.Itoa(hour) + "&q=" + latitude + "," + longitute
+	url := API_URL + strconv.Itoa(hour) + "&q=" + latitude + "," + longitude
 
 	// Fetch
 	resp, err := http.Get(url)

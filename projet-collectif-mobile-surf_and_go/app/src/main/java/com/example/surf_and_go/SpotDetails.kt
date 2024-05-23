@@ -75,16 +75,6 @@ class SpotDetailsActivity : AppCompatActivity() {
         val nameView: TextView = findViewById<TextView>(R.id.name_detail)
         nameView.text = name
 
-        val imageUrl = intent.getStringExtra("spotImage")
-        val imageView: ImageView = findViewById<ImageView>(R.id.image_detail)
-        Picasso.get()
-            .load(imageUrl)
-            .into(imageView)
-
-
-        val location = intent.getStringExtra("spotLocation")
-        val locationView: TextView = findViewById<TextView>(R.id.location_detail)
-        locationView.text = location
 
         val button: Button = findViewById<Button>(R.id.button_detail)
         button.setOnClickListener(){
