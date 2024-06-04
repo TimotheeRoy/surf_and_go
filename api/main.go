@@ -1,13 +1,12 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func Handler(w http.ResponseWriter, r *http.Request) {
 
 	router := gin.Default()
 
@@ -21,7 +20,5 @@ func main() {
 	})
 
 	//Serveur qui run
-	router.Run(":8080")
-
-	log.Println("Starting server on port 8080")
+	router.ServeHTTP(w, r)
 }
