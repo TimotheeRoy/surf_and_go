@@ -3,14 +3,22 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func Connectdb() *mongo.Client {
-	uri := "mongodb+srv://leastattner:IdiyWmR0hb6FjPdf@surfandgo.xamxbka.mongodb.net/?retryWrites=true&w=majority&appName=SURFANDGO"
+
+	err := godotenv.Load()
+	if err != nil {
+		panic(err)
+	}
+	
+	uri := os.Getenv("DB_URL")
 
 	client, err := mongo.Connect(context.TODO(), options.Client().
 		ApplyURI(uri))
