@@ -3,11 +3,7 @@
         {
             "src": "./main.go",
             "use": "@vercel/go",
-            "config": { "maxLambdaSize": "15mb" },
-            "env" : {
-                "API_URL" : "http://api.weatherapi.com/v1/marine.json?key=3321138404bc4d6bbed101345242105&hour=",
-                "DB_URL" : "mongodb+srv://leastattner:IdiyWmR0hb6FjPdf@surfandgo.xamxbka.mongodb.net/?retryWrites=true&w=majority&appName=SURFANDGO"
-            }
+            "config": { "maxLambdaSize": "15mb" }
         }
     ],
     "env" : {
